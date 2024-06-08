@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.emoji {
+    font-size: 2em;
+    margin: 10px;
+    cursor: pointer;
+}
+.emoji:hover {
+    transform: scale(1.2); /* Agrandar el emoji al pasar el mouse */
+    transition: transform 0.3s ease; /* Agregar una transición suave */
+}
+.emoji:active {
+    transform: translateY(-5px); /* Mover el emoji hacia arriba */
+    transition: transform 0.1s ease; /* Agregar una transición suave */
+}
+
+.emoji:active {
+    transform: translateY(0); /* Volver a la posición original */
+    transition: transform 0.1s ease; /* Agregar una transición suave */
+}
+.emoji {
+    font-size: 2em;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 50%; /* Hacer que los emojis tengan bordes redondeados */
+    box-shadow: 0px 2px 4px rgba(0, 255, 128, 0.1); /* Agregar una sombra suave */
+    background-color: #00d9ff93; /* Agregar un color de fondo */
+    padding: 10px; /* Agregar un espacio alrededor del emoji */
+}
+
+/* Estilos para el contenedor de emojis */
+#emojiContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilos para cada emoji */
+.emoji {
+    font-size: 3em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto de agrandamiento al pasar el ratón */
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+/* Estilos para emojis favoritos */
+.emoji.favorite {
+    color: rgb(32, 66, 218);
+    border: 2px solid rgb(121, 9, 52);
+    border-radius: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
