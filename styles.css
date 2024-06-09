@@ -72,9 +72,4 @@ body {
     color: #ff5733;
 }
 
-@media (max-width: 600px) {
-    .emoji {
-        font-size: 1.5em;
-        margin: 5px;
-    }
-}
+
