@@ -156,7 +156,50 @@ function loadEmojis() {
 }
 
 // Cargar los emojis cuando la página se haya cargado
+const emojis = ['😀', '😂', '🥰', '😎', '😭', '🤔', '😍', '👍', '🎉', '🤖', '😜', '🧐', '🤩', '🤓', '🥳', '🥺', '😡', '🤬', '😱', '🤠'];
 window.onload = loadEmojis;
+
+const emojiDescriptions = {
+    '😀': 'Cara feliz',
+    '😂': 'Riendo a carcajadas',
+    '🥰': 'Cara con corazones',
+    '😎': 'Cara con gafas de sol',
+    '😭': 'Llorando fuerte',
+    '🤔': 'Pensativo',
+    '😍': 'Cara enamorada',
+    '👍': 'Pulgar hacia arriba',
+    '🎉': 'Fiesta',
+    '🤖': 'Robot',
+    '😜': 'Cara sacando la lengua',
+    '🧐': 'Cara con monóculo',
+    '🤩': 'Cara con estrellas',
+    '🤓': 'Cara de nerd',
+    '🥳': 'Cara de fiesta',
+    '🥺': 'Cara suplicante',
+    '😡': 'Cara enfadada',
+    '🤬': 'Cara con símbolos en la boca',
+    '😱': 'Cara gritando de miedo',
+    '🤠': 'Cara con sombrero de vaquero'
+};
+
+function loadEmojis() {
+    emojis.forEach(emoji => {
+        const emojiElement = document.createElement('span');
+        emojiElement.classList.add('emoji');
+        emojiElement.textContent = emoji;
+
+        // Agregar descripción al pasar el ratón por encima
+        emojiElement.title = emojiDescriptions[emoji] || '';
+
+        emojiElement.addEventListener('click', () => {
+            copyToClipboard(emoji);
+            alert(`El emoji ${emoji} ha sido copiado al portapapeles.`);
+        });
+
+        emojiContainer.appendChild(emojiElement);
+    });
+}
+
 
 
 
