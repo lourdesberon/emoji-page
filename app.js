@@ -200,6 +200,48 @@ function loadEmojis() {
     });
 }
 
+const favoriteEmojis = JSON.parse(localStorage.getItem('favoriteEmojis')) || [];
+
+function saveFavorite(emoji) {
+    if (!favoriteEmojis.includes(emoji)) {
+        favoriteEmojis.push(emoji);
+        localStorage.setItem('favoriteEmojis', JSON.stringify(favoriteEmojis));
+    }
+}
+
+function loadEmojis() {
+    emojis.forEach(emoji => {
+        const emojiElement = document.createElement('span');
+        emojiElement.classList.add('emoji');
+        emojiElement.textContent = emoji;
+
+        // Agregar descripción al pasar el ratón por encima
+        emojiElement.title = emojiDescriptions[emoji] || '';
+
+        emojiElement.addEventListener('click', () => {
+            copyToClipboard(emoji);
+            saveFavorite(emoji);
+            alert(`El emoji ${emoji} ha sido copiado al portapapeles.`);
+        });
+
+        emojiContainer.appendChild(emojiElement);
+    });
+
+    displayFavoriteEmojis();
+}
+
+function displayFavoriteEmojis() {
+    const favoriteContainer = document.getElementById('favoriteEmojis');
+    favoriteContainer.innerHTML = '';
+
+    favoriteEmojis.forEach(emoji => {
+        const emojiElement = document.createElement('span');
+        emojiElement.classList.add('emoji');
+        emojiElement.textContent = emoji;
+        favoriteContainer.appendChild(emojiElement);
+    });
+}
+
 
 
 
